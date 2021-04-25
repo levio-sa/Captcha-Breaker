@@ -1,0 +1,30 @@
+{
+    "manifest_version": 2,
+    "name": "Click to execute",
+    "description": "Akshaya app",
+    "version": "1.0",
+    "icons": {
+              "48": "icon48.png"
+              },
+    "permissions": [
+                    "tabs", "<all_urls>", "storage"
+                   ],
+   "browser_action": {
+   "default_icon": "icon48.png",
+   "default_popup": "popup.html"
+                     },
+   "content_scripts": [
+                      {
+                        "matches": ["https://oauth.iitd.ac.in/*"],
+                        "js": ["kerberos.js"]
+                        },
+                        {
+                        "matches": ["https://moodle.iitd.ac.in/login/index.php/*"],
+                        "js": ["popup.js"]
+                        },
+                        {
+                        "matches": ["https://webmail.iitd.ac.in/roundcube/*"],
+                        "js": ["webmail.js"]
+                        }
+                      ]
+    }
